@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merry Apocalypse</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: black;
+      color: white;
+    }
+
+    .video-wrapper {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: -2;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: -1;
+    }
+
+    .content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 40px 30px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-bottom: 30px;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+
+    .signup {
+      margin-bottom: 30px;
+    }
+
+    /* Replace this with your real embedded form */
+    .signup input {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .signup button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: white;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .signup button:hover {
+      transform: scale(1.02);
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .socials a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      opacity: 0.8;
+      transition: 0.3s ease;
+    }
+
+    .socials a:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .card {
+        padding: 30px 20px;
+      }
+
+      .socials {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <div class="video-wrapper">
+    <video autoplay muted loop playsinline>
+      <source src="your-video.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Dark Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Content -->
+  <main class="content">
+    <div class="card">
+
+      <img class="logo" width="100%" src="ma-logo.jpg" alt="Merry Apocalypse Logo" />
+
+      <p>
+        Cinematic progressive metal from another dimension.
+      </p>
+
+      <!-- Replace with Mailchimp / ConvertKit / etc -->
+      <div class="signup">
+        <input type="email" placeholder="Enter your email" />
+        <button>Join Newsletter</button>
+      </div>
+
+      <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">Spotify</a>
+        <a href="#">YouTube</a>
+        <a href="#">TikTok</a>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>
