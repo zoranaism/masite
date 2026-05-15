@@ -105,6 +105,11 @@
       transform: scale(1.03);
     }
 
+    #mc-message {
+      transition: 0.3s ease;
+      color: white;
+    }
+
     .socials {
       display: flex;
       justify-content: center;
@@ -161,14 +166,13 @@
       </p>
 
 
-      <form class="signup"
-        action="https://merryapocalypseofficial.us1.list-manage.com/subscribe/post?u=b43c57706a57dc53e3f983f09&id=ea02ac87b2"
-        method="post"
-        target="_blank">
+      <form id="mc-form" class="signup">
 
-        <input type="email" name="EMAIL" placeholder="Enter your email" required />
+        <input type="email" name="EMAIL" id="mc-email" placeholder="Enter your email" required />
 
         <button type="submit">Join Newsletter</button>
+
+        <p id="mc-message" style="margin-top:15px; opacity:0;"></p>
 
       </form>
 
@@ -181,6 +185,35 @@
 
     </div>
   </main>
+
+    
+  <script>
+  const form = document.getElementById('mc-form');
+  const message = document.getElementById('mc-message');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('mc-email').value;
+
+    fetch("https://merryapocalypseofficial.us1.list-manage.com/subscribe/post-json?u=b43c57706a57dc53e3f983f09&id=ea02ac87b2&c=?", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: "EMAIL=" + encodeURIComponent(email)
+    })
+    .then(() => {
+      message.style.opacity = 1;
+      message.innerText = "🔥 You're in. Welcome to the apocalypse.";
+      form.reset();
+    })
+    .catch(() => {
+      message.style.opacity = 1;
+      message.innerText = "Something went wrong — try again.";
+    });
+  });
+  </script> 
 
 </body>
 </html>
