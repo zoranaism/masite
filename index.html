@@ -22,6 +22,7 @@
       color: white;
     }
 
+    /* BACKGROUND VIDEO */
     .video-wrapper {
       position: fixed;
       inset: 0;
@@ -42,6 +43,7 @@
       z-index: -1;
     }
 
+    /* CONTENT */
     .content {
       width: 100%;
       height: 100%;
@@ -62,11 +64,10 @@
       padding: 40px 30px;
     }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
+    .logo {
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 20px;
     }
 
     p {
@@ -75,8 +76,9 @@
       line-height: 1.6;
     }
 
+    /* FORM */
     .signup {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     .signup input {
@@ -105,15 +107,20 @@
       transform: scale(1.03);
     }
 
-    #mc-message {
+    /* SUCCESS MESSAGE */
+    #success-msg {
+      opacity: 0;
       transition: 0.3s ease;
-      color: white;
+      margin-top: 10px;
+      color: #9cff9c;
     }
 
+    /* SOCIALS */
     .socials {
       display: flex;
       justify-content: center;
       gap: 20px;
+      margin-top: 25px;
     }
 
     .socials a {
@@ -129,53 +136,54 @@
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-
       .card {
         padding: 30px 20px;
-      }
-
-      .socials {
-        flex-wrap: wrap;
       }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Background Video -->
+  <!-- BACKGROUND VIDEO -->
   <div class="video-wrapper">
     <video autoplay muted loop playsinline>
       <source src="your-video.mp4" type="video/mp4">
     </video>
   </div>
 
-  <!-- Dark Overlay -->
   <div class="overlay"></div>
 
-  <!-- Content -->
+  <!-- CONTENT -->
   <main class="content">
     <div class="card">
 
-      <img class="logo" width="100%" src="ma-logo.jpg" alt="Merry Apocalypse Logo" />
+      <!-- LOGO -->
+      <img class="logo" src="ma-logo.jpg" alt="Merry Apocalypse Logo" />
 
+      <!-- TEXT -->
       <p>
         Cinematic progressive metal from another dimension.
       </p>
 
+      <!-- MAILCHIMP FORM -->
+      <form class="signup"
+        action="https://merryapocalypseofficial.us1.list-manage.com/subscribe/post?u=b43c57706a57dc53e3f983f09&id=ea02ac87b2"
+        method="post"
+        target="hidden_iframe">
 
-      <form id="mc-form" class="signup">
-
-        <input type="email" name="EMAIL" id="mc-email" placeholder="Enter your email" required />
-
+        <input type="email" name="EMAIL" required placeholder="Enter your email" />
         <button type="submit">Join Newsletter</button>
-
-        <p id="mc-message" style="margin-top:15px; opacity:0;"></p>
 
       </form>
 
+      <!-- hidden iframe prevents redirect -->
+      <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+      <!-- SUCCESS MESSAGE -->
+      <p id="success-msg">🔥 You're in. Welcome to the apocalypse.</p>
+
+      <!-- SOCIAL LINKS -->
       <div class="socials">
         <a href="#">Instagram</a>
         <a href="#">Spotify</a>
@@ -186,34 +194,17 @@
     </div>
   </main>
 
-    
+  <!-- SCRIPT (WORKING + NO CORS ISSUES) -->
   <script>
-  const form = document.getElementById('mc-form');
-  const message = document.getElementById('mc-message');
+    const form = document.querySelector('.signup');
+    const successMsg = document.getElementById('success-msg');
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const email = document.getElementById('mc-email').value;
-
-    fetch("https://merryapocalypseofficial.us1.list-manage.com/subscribe/post-json?u=b43c57706a57dc53e3f983f09&id=ea02ac87b2&c=?", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      body: "EMAIL=" + encodeURIComponent(email)
-    })
-    .then(() => {
-      message.style.opacity = 1;
-      message.innerText = "🔥 You're in. Welcome to the apocalypse.";
-      form.reset();
-    })
-    .catch(() => {
-      message.style.opacity = 1;
-      message.innerText = "Something went wrong — try again.";
+    form.addEventListener('submit', function () {
+      setTimeout(() => {
+        successMsg.style.opacity = 1;
+      }, 600);
     });
-  });
-  </script> 
+  </script>
 
 </body>
 </html>
