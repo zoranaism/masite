@@ -22,12 +22,29 @@
       color: white;
     }
 
-    /* BACKGROUND VIDEO */
+    /* =========================
+       BACKGROUND IMAGE (ACTIVE)
+    ========================== */
+    .image-wrapper {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: url("./ma-image.jpg"); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* =========================
+       BACKGROUND VIDEO (FUTURE)
+       uncomment when ready
+    ========================== */
+    /*
     .video-wrapper {
       position: fixed;
       inset: 0;
-      overflow: hidden;
       z-index: -2;
+      overflow: hidden;
     }
 
     .video-wrapper video {
@@ -35,7 +52,9 @@
       height: 100%;
       object-fit: cover;
     }
+    */
 
+    /* DARK OVERLAY */
     .overlay {
       position: fixed;
       inset: 0;
@@ -121,6 +140,7 @@
       justify-content: center;
       gap: 20px;
       margin-top: 25px;
+      flex-wrap: wrap;
     }
 
     .socials a {
@@ -145,13 +165,23 @@
 
 <body>
 
-  <!-- BACKGROUND VIDEO -->
+  <!-- =========================
+       BACKGROUND (IMAGE ACTIVE)
+  ========================== -->
+  <div class="image-wrapper"></div>
+
+  <!-- =========================
+       BACKGROUND VIDEO (FUTURE)
+  ========================== -->
+  <!--
   <div class="video-wrapper">
     <video autoplay muted loop playsinline>
       <source src="your-video.mp4" type="video/mp4">
     </video>
   </div>
+  -->
 
+  <!-- DARK OVERLAY -->
   <div class="overlay"></div>
 
   <!-- CONTENT -->
@@ -159,7 +189,7 @@
     <div class="card">
 
       <!-- LOGO -->
-      <img class="logo" src="ma-logo.jpg" alt="Merry Apocalypse Logo" />
+      <img class="logo" src="./ma-logo.jpg" alt="Merry Apocalypse Logo" />
 
       <!-- TEXT -->
       <p>
@@ -183,7 +213,7 @@
       <!-- SUCCESS MESSAGE -->
       <p id="success-msg">🔥 You're in. Welcome to the apocalypse.</p>
 
-      <!-- SOCIAL LINKS -->
+      <!-- SOCIALS -->
       <div class="socials">
         <a href="#">Instagram</a>
         <a href="#">Spotify</a>
@@ -194,7 +224,7 @@
     </div>
   </main>
 
-  <!-- SCRIPT (WORKING + NO CORS ISSUES) -->
+  <!-- SUCCESS SCRIPT -->
   <script>
     const form = document.querySelector('.signup');
     const successMsg = document.getElementById('success-msg');
