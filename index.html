@@ -79,7 +79,6 @@
       margin-bottom: 30px;
     }
 
-    /* Replace this with your real embedded form */
     .signup input {
       width: 100%;
       padding: 14px;
@@ -87,6 +86,7 @@
       border-radius: 10px;
       margin-bottom: 12px;
       font-size: 1rem;
+      background: rgba(255,255,255,0.9);
     }
 
     .signup button {
@@ -102,7 +102,7 @@
     }
 
     .signup button:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
     }
 
     .socials {
@@ -160,11 +160,17 @@
         Cinematic progressive metal from another dimension.
       </p>
 
-      <!-- Replace with Mailchimp / ConvertKit / etc -->
-      <div class="signup">
-        <input type="email" placeholder="Enter your email" />
-        <button>Join Newsletter</button>
-      </div>
+
+      <form class="signup"
+        action="https://merryapocalypseofficial.us1.list-manage.com/subscribe/post?u=b43c57706a57dc53e3f983f09&id=ea02ac87b2"
+        method="post"
+        target="_blank">
+
+        <input type="email" name="EMAIL" placeholder="Enter your email" required />
+
+        <button type="submit">Join Newsletter</button>
+
+      </form>
 
       <div class="socials">
         <a href="#">Instagram</a>
